@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.1//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
+
+<!--
+	Supprime certaines verifications pour certains fichiers du projet.
+
+	Version : 1.0
+	Auteur  : Clément Guet	
+	
+	Voir    : checkstyle_eval.xml (module "SuppressionFilter")
+-->
+<suppressions>
+	
+	<!-- Pas de verification des commentaires Javadocs des packages (package-info.java) -->
+	<!-- dans le repertoire "test". Les packages de ce repertoire sont partages avec    -->
+	<!-- le repertoire "src" (bonne pratique JUnit).                                    -->
+	<suppress checks="JavadocPackage" files="test[\\/]" /> 
+
+	<!-- Pas de verification des blocs vides (sans instruction) dans le repertoire "test". -->
+	<!-- Permissivite accordee au code de test. Neanmoins, les blocs vides d'instructions    -->
+	<!-- doivent au moins être commentes (cf. checkEmptyBlockText).                        -->
+	<suppress id="checkEmptyBlockStmt" files="test[\\/]" />
+
+	<!-- Pas de verification des noms de methodes sans underscore dans le repertoire "test".     -->
+	<!-- En d'autres termes, les underscores sont utilisables pour les methodes de test unitaire. -->
+	<suppress id="methodNameWithoutUndescore" files="test[\\/]" />
+	
+	<!-- Pas de verification de presence d'un contructeur dans le repertoire "test".           -->
+	<!-- En d'autres termes, il est tolere que les classes de suites de test ne precisent --> 
+	<!-- pas de constructeur.                                                             -->
+	<suppress id="missingConstructor" files="test[\\/]" />
+
+	<!-- Pas de verification de presence d'un constructeur publique pour les tests.        -->
+	<!-- En d'autres termes, il est tolere que les classes de suites de test ne precisent  --> 
+	<!-- pas de constructeur (et s'appuient donc sur un constructeur publique par defaut). -->
+	<suppress id="hideUtilityClassConstructor" files="test[\\/]" />
+	
+	<!-- Pas de verification du DAC (Data Abstraction Coupling pour les classes des vues. -->
+	<!-- En d'autres termes, il est tolere que les classes des vues instancient un grand  -->
+	<!-- nombre d'objets, en particulier pour les differents widgets de l'interface.      -->
+	<suppress id="classDataAbstractionCoupling" files="src[\\/].*[\\/]vue[\\/]" />
+
+</suppressions>
+

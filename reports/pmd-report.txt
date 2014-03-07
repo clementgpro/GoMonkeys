@@ -1,0 +1,4 @@
+src/tinymonkeys/modele/BandeDeSingesErratiques.java:82:	Avoid instantiating new objects inside loops
+src/tinymonkeys/vue/Fenetre.java:128:	The user-supplied array 'carte' is stored directly.
+src/tinymonkeys/vue/VueCarte.java:92:	The user-supplied array 'carte' is stored directly.
+src/tinymonkeys/vue/VueCarte.java:191:	The user-supplied array 'carte' is stored directly.
